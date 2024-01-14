@@ -32,21 +32,21 @@ public class PackageJsonHelper
             {
                 if (p == "latest")
                 {
-                    DictionaryHelperSE.AddOrCreate(result, int.MaxValue, item);
+                    DictionaryHelper.AddOrCreate(result, int.MaxValue, item);
                 }
                 else
                 {
                     var parts = SHSE.Split(p, ".");
 
 
-                    if (int.TryParse(parts[0], out var i)) DictionaryHelperSE.AddOrCreate(result, i, item);
+                    if (int.TryParse(parts[0], out var i)) DictionaryHelper.AddOrCreate(result, i, item);
                 }
 
-                DictionaryHelperSE.AddOrCreate(result, -1, item);
+                DictionaryHelper.AddOrCreate(result, -1, item);
             }
             else
             {
-                DictionaryHelperSE.AddOrCreate(result, -1, item);
+                DictionaryHelper.AddOrCreate(result, -1, item);
             }
         }
 
