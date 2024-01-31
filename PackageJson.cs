@@ -1,5 +1,3 @@
-using SunamoValues;
-
 namespace SunamoPackageJson;
 
 public class PackageJson
