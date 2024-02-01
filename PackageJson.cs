@@ -46,7 +46,7 @@ public class PackageJson
 
     public override string ToString()
     {
-        return JsonConvert.SerializeObject(this, Formatting.Indented,
+        return JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented,
             new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
     }
 }
