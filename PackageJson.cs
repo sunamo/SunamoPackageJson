@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace SunamoPackageJson;
 
 public class PackageJson

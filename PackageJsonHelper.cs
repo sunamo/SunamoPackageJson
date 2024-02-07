@@ -1,3 +1,6 @@
+using Newtonsoft.Json;
+using SunamoPackageJson._sunamo;
+
 namespace SunamoPackageJson;
 
 public class PackageJsonHelper

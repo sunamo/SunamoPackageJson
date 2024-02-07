@@ -5,6 +5,3 @@ global using SunamoValues;
 global using System.IO;
 global using System.Threading.Tasks;
 global using SunamoExceptions;
-global using SunamoDictionary;
-global using System.Xml;
-global using Newtonsoft.Json;
