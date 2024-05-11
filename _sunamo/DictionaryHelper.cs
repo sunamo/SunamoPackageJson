@@ -1,6 +1,6 @@
-﻿using System.Collections;
+using System.Collections;
 
-namespace SunamoPackageJson._sunamo;
+namespace SunamoPackageJson;
 internal class DictionaryHelper
 {
     #region AddOrCreate
