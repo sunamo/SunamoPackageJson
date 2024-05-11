@@ -35,7 +35,7 @@ public class PackageJsonHelper
                 }
                 else
                 {
-                    var parts = SHSE.Split(p, ".");
+                    var parts = SHSunamoExceptions.Split(p, ".");
 
 
                     if (int.TryParse(parts[0], out var i)) DictionaryHelper.AddOrCreate(result, i, item);
