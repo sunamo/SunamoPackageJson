@@ -1,7 +1,7 @@
 using System.Collections;
 
 namespace SunamoPackageJson;
-internal class DictionaryHelper
+public class DictionaryHelper
 {
     #region AddOrCreate
     /// <summary>
@@ -16,7 +16,7 @@ internal class DictionaryHelper
     /// <param name="sl"></param>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    internal static void AddOrCreate<Key, Value, ColType>(IDictionary<Key, List<Value>> dict, Key key, Value value,
+    public static void AddOrCreate<Key, Value, ColType>(IDictionary<Key, List<Value>> dict, Key key, Value value,
         bool withoutDuplicitiesInValue = false, Dictionary<Key, List<string>> dictS = null)
     {
         var compWithString = false;
@@ -121,7 +121,7 @@ internal class DictionaryHelper
         }
     }
 
-    internal static void AddOrCreate<Key, Value>(IDictionary<Key, List<Value>> sl, Key key, Value value,
+    public static void AddOrCreate<Key, Value>(IDictionary<Key, List<Value>> sl, Key key, Value value,
         bool withoutDuplicitiesInValue = false, Dictionary<Key, List<string>> dictS = null)
     {
         AddOrCreate<Key, Value, object>(sl, key, value, withoutDuplicitiesInValue, dictS);
