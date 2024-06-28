@@ -1,3 +1,5 @@
+
+namespace SunamoPackageJson;
 public class TranslateAble
 {
     

@@ -1,3 +1,5 @@
+
+namespace SunamoPackageJson;
 using System.Diagnostics;
 using System.Text;
 
