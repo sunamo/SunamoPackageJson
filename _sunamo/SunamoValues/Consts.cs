@@ -1,4 +1,4 @@
-namespace SunamoPackageJson;
+namespace SunamoPackageJson._sunamo.SunamoValues;
 
 
 
