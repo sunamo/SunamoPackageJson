@@ -16,3 +16,6 @@ global using SunamoPackageJson._sunamo.SunamoXlfKeys;
 global using SunamoPackageJson._sunamo.SunamoExceptions.InSunamoIsDerivedFrom;
 global using SunamoPackageJson._sunamo.SunamoExceptions.OnlyInSE;
 global using SunamoPackageJson._sunamo.SunamoExceptions._AddedToAllCsproj;
+global using Newtonsoft.Json;
+global using System.Diagnostics;
+global using System.Net;

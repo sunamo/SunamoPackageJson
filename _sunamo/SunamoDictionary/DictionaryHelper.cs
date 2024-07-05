@@ -1,5 +1,3 @@
-using System.Collections;
-
 namespace SunamoPackageJson._sunamo.SunamoDictionary;
 internal class DictionaryHelper
 {
