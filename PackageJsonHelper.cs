@@ -1,3 +1,5 @@
+using SunamoPackageJson._sunamo;
+
 namespace SunamoPackageJson;
 
 public class PackageJsonHelper
@@ -32,7 +34,7 @@ public class PackageJsonHelper
                 }
                 else
                 {
-                    var parts = SHSunamoExceptions.Split(p, ".");
+                    var parts = SHSplit.SplitMore(p, ".");
 
 
                     if (int.TryParse(parts[0], out var i)) DictionaryHelper.AddOrCreate(result, i, item);
