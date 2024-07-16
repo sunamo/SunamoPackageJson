@@ -1,7 +1,13 @@
-namespace SunamoPackageJson._sunamo.SunamoExceptions._AddedToAllCsproj;
+//namespace SunamoPackageJson._sunamo.SunamoExceptions._AddedToAllCsproj;
 
-internal class CASunamoExceptions
+internal class CA
 {
+    public static List<string> Trim(List<string> l)
+    {
+        for (var i = 0; i < l.Count; i++) l[i] = l[i].Trim();
+        return l;
+    }
+
     internal static bool IsListStringWrappedInArray<T>(List<T> v2)
     {
         var first = v2.First().ToString();

@@ -1,6 +1,6 @@
-using SunamoPackageJson._sunamo;
 
 namespace SunamoPackageJson;
+using SunamoPackageJson._sunamo;
 
 public class PackageJsonHelper
 {
