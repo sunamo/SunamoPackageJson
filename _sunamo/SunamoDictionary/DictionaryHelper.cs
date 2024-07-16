@@ -1,4 +1,5 @@
 namespace SunamoPackageJson._sunamo.SunamoDictionary;
+
 internal class DictionaryHelper
 {
     #region AddOrCreate

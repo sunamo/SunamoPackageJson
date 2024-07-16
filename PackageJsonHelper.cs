@@ -22,7 +22,7 @@ public class PackageJsonHelper
 #if ASYNC
     await
 #endif
-                TFSE.ReadAllText(item));
+                TF.ReadAllText(item));
 
             var p = d.GetVersionFromDepsOrDevDeps(package).TrimStart('^');
 
@@ -69,7 +69,7 @@ public class PackageJsonHelper
 #if ASYNC
     await
 #endif
- TFSE.ReadAllText(jsonOrPath);
+ TF.ReadAllText(jsonOrPath);
 
         var prefix = @"https://www.npmjs.com/package/";
         var v = Parse(jsonOrPath);
@@ -96,7 +96,7 @@ public class PackageJsonHelper
 #if ASYNC
     await
 #endif
- TFSE.ReadAllText(jsonOrPath);
+ TF.ReadAllText(jsonOrPath);
 
         var v = Parse(jsonOrPath);
         foreach (var item in v.dependencies)
