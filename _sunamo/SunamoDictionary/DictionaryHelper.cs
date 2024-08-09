@@ -3,6 +3,7 @@ namespace SunamoPackageJson._sunamo.SunamoDictionary;
 internal class DictionaryHelper
 {
     #region AddOrCreate
+
     /// <summary>
     ///     A3 is inner type of collection entries
     ///     dictS => is comparing with string
@@ -21,7 +22,7 @@ internal class DictionaryHelper
         var compWithString = false;
         if (dictS != null) compWithString = true;
 
-        if (key is IList && typeof(ColType) != typeof(Object))
+        if (key is IList && typeof(ColType) != typeof(object))
         {
             var keyE = key as IList<ColType>;
             var contains = false;
@@ -125,5 +126,6 @@ internal class DictionaryHelper
     {
         AddOrCreate<Key, Value, object>(sl, key, value, withoutDuplicitiesInValue, dictS);
     }
+
     #endregion
 }

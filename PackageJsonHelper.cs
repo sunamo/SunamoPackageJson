@@ -1,12 +1,12 @@
+using SunamoPackageJson._sunamo;
 
 namespace SunamoPackageJson;
-using SunamoPackageJson._sunamo;
 
 public class PackageJsonHelper
 {
     public static
 #if ASYNC
-    async Task<Dictionary<int, List<string>>>
+        async Task<Dictionary<int, List<string>>>
 #else
         Dictionary<int, List<string>>
 #endif
@@ -20,9 +20,9 @@ public class PackageJsonHelper
         {
             var d = Parse(
 #if ASYNC
-    await
+                await
 #endif
-                TF.ReadAllText(item));
+                    TF.ReadAllText(item));
 
             var p = d.GetVersionFromDepsOrDevDeps(package).TrimStart('^');
 
@@ -59,17 +59,18 @@ public class PackageJsonHelper
 
     public static
 #if ASYNC
-    async Task<List<string>>
+        async Task<List<string>>
 #else
-    List<string>  
+    List<string>
 #endif
- PackageNamesFromPackageJson(string jsonOrPath)
+        PackageNamesFromPackageJson(string jsonOrPath)
     {
-        if (File.Exists(jsonOrPath)) jsonOrPath =
+        if (File.Exists(jsonOrPath))
+            jsonOrPath =
 #if ASYNC
-    await
+                await
 #endif
- TF.ReadAllText(jsonOrPath);
+                    TF.ReadAllText(jsonOrPath);
 
         var prefix = @"https://www.npmjs.com/package/";
         var v = Parse(jsonOrPath);
@@ -85,18 +86,19 @@ public class PackageJsonHelper
 
     public static
 #if ASYNC
-    async Task
+        async Task
 #else
-    void  
+    void
 #endif
- OpenPackagesFromPackageJsonFromNpm(string jsonOrPath, Action<string> openInBrowser,
-        string cdnProvidersUnpkgd, Func<string, string, string> uriWebServicesFromChromeReplacement)
+        OpenPackagesFromPackageJsonFromNpm(string jsonOrPath, Action<string> openInBrowser,
+            string cdnProvidersUnpkgd, Func<string, string, string> uriWebServicesFromChromeReplacement)
     {
-        if (File.Exists(jsonOrPath)) jsonOrPath =
+        if (File.Exists(jsonOrPath))
+            jsonOrPath =
 #if ASYNC
-    await
+                await
 #endif
- TF.ReadAllText(jsonOrPath);
+                    TF.ReadAllText(jsonOrPath);
 
         var v = Parse(jsonOrPath);
         foreach (var item in v.dependencies)
