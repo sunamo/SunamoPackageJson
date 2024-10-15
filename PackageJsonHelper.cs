@@ -1,6 +1,5 @@
-using SunamoPackageJson._sunamo;
-
 namespace SunamoPackageJson;
+using SunamoPackageJson._sunamo;
 
 public class PackageJsonHelper
 {
@@ -22,7 +21,7 @@ public class PackageJsonHelper
 #if ASYNC
                 await
 #endif
-                    TF.ReadAllText(item));
+                    File.ReadAllTextAsync(item));
 
             var p = d.GetVersionFromDepsOrDevDeps(package).TrimStart('^');
 
@@ -70,7 +69,7 @@ public class PackageJsonHelper
 #if ASYNC
                 await
 #endif
-                    TF.ReadAllText(jsonOrPath);
+                    File.ReadAllTextAsync(jsonOrPath);
 
         var prefix = @"https://www.npmjs.com/package/";
         var v = Parse(jsonOrPath);
@@ -98,7 +97,7 @@ public class PackageJsonHelper
 #if ASYNC
                 await
 #endif
-                    TF.ReadAllText(jsonOrPath);
+                    File.ReadAllTextAsync(jsonOrPath);
 
         var v = Parse(jsonOrPath);
         foreach (var item in v.dependencies)

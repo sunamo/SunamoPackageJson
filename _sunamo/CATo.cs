@@ -1,10 +1,7 @@
-﻿using System;
+namespace SunamoPackageJson._sunamo;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SunamoPackageJson._sunamo;
 internal class CATo
 {
     internal static List<T> ToList<T>(params T[] t)
