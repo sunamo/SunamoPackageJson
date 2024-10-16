@@ -11,3 +11,4 @@ global using Newtonsoft.Json;
 global using System.Diagnostics;
 global using System.Reflection;
 global using System.Net;
+global using System.Diagnostics.CodeAnalysis;
