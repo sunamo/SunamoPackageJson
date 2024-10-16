@@ -25,7 +25,7 @@ public class PackageJsonHelper
 
             var p = d.GetVersionFromDepsOrDevDeps(package).TrimStart('^');
 
-            if (p != Consts.se)
+            if (p != "")
             {
                 if (p == "latest")
                 {

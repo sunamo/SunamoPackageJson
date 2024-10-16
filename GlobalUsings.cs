@@ -6,7 +6,7 @@ global using System.Text;
 global using System.Collections;
 global using System.Linq;
 global using SunamoPackageJson._sunamo.SunamoDictionary;
-global using SunamoPackageJson._sunamo.SunamoValues;
+global using SunamoPackageJson;
 global using SunamoPackageJson._sunamo.SunamoExceptions;
 global using Newtonsoft.Json;
 global using System.Diagnostics;

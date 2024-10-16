@@ -41,7 +41,7 @@ public class PackageJson
         if (dependencies != null && dependencies.ContainsKey(package)) return dependencies[package];
         if (devDependencies != null && devDependencies.ContainsKey(package)) return devDependencies[package];
 
-        return Consts.se;
+        return "";
     }
 
     public override string ToString()
