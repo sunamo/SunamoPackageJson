@@ -12,3 +12,5 @@ global using System.Diagnostics;
 global using System.Reflection;
 global using System.Net;
 global using System.Diagnostics.CodeAnalysis;
+global using SunamoPackageJson;
+global using SunamoPackageJson._sunamo;
