@@ -1,5 +1,4 @@
 namespace SunamoPackageJson;
-using SunamoPackageJson._sunamo;
 
 public class PackageJsonHelper
 {
@@ -12,9 +11,7 @@ public class PackageJsonHelper
         CategorizeByFirstNumberOfPackage(string folder, string package)
     {
         Dictionary<int, List<string>> result = new();
-
         var pjs = Directory.GetFiles(folder, "package.json", SearchOption.AllDirectories);
-
         foreach (var item in pjs)
         {
             var d = Parse(
@@ -22,9 +19,7 @@ public class PackageJsonHelper
                 await
 #endif
                     File.ReadAllTextAsync(item));
-
             var p = d.GetVersionFromDepsOrDevDeps(package).TrimStart('^');
-
             if (p != "")
             {
                 if (p == "latest")
@@ -34,11 +29,8 @@ public class PackageJsonHelper
                 else
                 {
                     var parts = SHSplit.SplitMore(p, ".");
-
-
                     if (int.TryParse(parts[0], out var i)) DictionaryHelper.AddOrCreate(result, i, item);
                 }
-
                 DictionaryHelper.AddOrCreate(result, -1, item);
             }
             else
@@ -46,16 +38,13 @@ public class PackageJsonHelper
                 DictionaryHelper.AddOrCreate(result, -1, item);
             }
         }
-
         return result;
     }
-
     public static PackageJson Parse(string json)
     {
         var ds = JsonConvert.DeserializeObject<PackageJson>(json);
         return ds;
     }
-
     public static
 #if ASYNC
         async Task<List<string>>
@@ -70,19 +59,13 @@ public class PackageJsonHelper
                 await
 #endif
                     File.ReadAllTextAsync(jsonOrPath);
-
         var prefix = @"https://www.npmjs.com/package/";
         var v = Parse(jsonOrPath);
         var result = new List<string>();
-
         foreach (var item in v.dependencies) result.Add(prefix + item.Key);
-
         foreach (var item in v.devDependencies) result.Add(prefix + item.Key);
-
         return result;
     }
-
-
     public static
 #if ASYNC
         async Task
@@ -98,11 +81,9 @@ public class PackageJsonHelper
                 await
 #endif
                     File.ReadAllTextAsync(jsonOrPath);
-
         var v = Parse(jsonOrPath);
         foreach (var item in v.dependencies)
             openInBrowser(uriWebServicesFromChromeReplacement.Invoke(cdnProvidersUnpkgd, item.Key));
-
         foreach (var item in v.devDependencies)
             openInBrowser(uriWebServicesFromChromeReplacement.Invoke(cdnProvidersUnpkgd, item.Key));
     }
