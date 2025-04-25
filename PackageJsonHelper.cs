@@ -28,7 +28,7 @@ public class PackageJsonHelper
                 }
                 else
                 {
-                    var parts = SHSplit.SplitMore(p, ".");
+                    var parts = SHSplit.Split(p, ".");
                     if (int.TryParse(parts[0], out var i)) DictionaryHelper.AddOrCreate(result, i, item);
                 }
                 DictionaryHelper.AddOrCreate(result, -1, item);
