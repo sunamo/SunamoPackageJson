@@ -1,3 +1,6 @@
+// EN: Variable names have been checked and replaced with self-descriptive names
+// CZ: Názvy proměnných byly zkontrolovány a nahrazeny samopopisnými názvy
+
 namespace SunamoPackageJson;
 
 public class PackageJsonHelper
@@ -14,21 +17,21 @@ public class PackageJsonHelper
         var pjs = Directory.GetFiles(folder, "package.json", SearchOption.AllDirectories);
         foreach (var item in pjs)
         {
-            var d = Parse(
+            var data = Parse(
 #if ASYNC
                 await
 #endif
                     File.ReadAllTextAsync(item));
-            var p = d.GetVersionFromDepsOrDevDeps(package).TrimStart('^');
-            if (p != "")
+            var parameter = data.GetVersionFromDepsOrDevDeps(package).TrimStart('^');
+            if (parameter != "")
             {
-                if (p == "latest")
+                if (parameter == "latest")
                 {
                     DictionaryHelper.AddOrCreate(result, int.MaxValue, item);
                 }
                 else
                 {
-                    var parts = SHSplit.Split(p, ".");
+                    var parts = SHSplit.Split(parameter, ".");
                     if (int.TryParse(parts[0], out var i)) DictionaryHelper.AddOrCreate(result, i, item);
                 }
                 DictionaryHelper.AddOrCreate(result, -1, item);
@@ -60,10 +63,10 @@ public class PackageJsonHelper
 #endif
                     File.ReadAllTextAsync(jsonOrPath);
         var prefix = @"https://www.npmjs.com/package/";
-        var v = Parse(jsonOrPath);
+        var value = Parse(jsonOrPath);
         var result = new List<string>();
-        foreach (var item in v.dependencies) result.Add(prefix + item.Key);
-        foreach (var item in v.devDependencies) result.Add(prefix + item.Key);
+        foreach (var item in value.dependencies) result.Add(prefix + item.Key);
+        foreach (var item in value.devDependencies) result.Add(prefix + item.Key);
         return result;
     }
     public static
@@ -81,10 +84,10 @@ public class PackageJsonHelper
                 await
 #endif
                     File.ReadAllTextAsync(jsonOrPath);
-        var v = Parse(jsonOrPath);
-        foreach (var item in v.dependencies)
+        var value = Parse(jsonOrPath);
+        foreach (var item in value.dependencies)
             openInBrowser(uriWebServicesFromChromeReplacement.Invoke(cdnProvidersUnpkgd, item.Key));
-        foreach (var item in v.devDependencies)
+        foreach (var item in value.devDependencies)
             openInBrowser(uriWebServicesFromChromeReplacement.Invoke(cdnProvidersUnpkgd, item.Key));
     }
 }
