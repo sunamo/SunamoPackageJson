@@ -1,6 +1,6 @@
 # SunamoPackageJson
 
-Read and generating package.json
+A .NET library for reading and generating package.json files.
 
 ## Overview
 
@@ -10,14 +10,15 @@ SunamoPackageJson is part of the Sunamo package ecosystem, providing modular, pl
 
 ### Key Classes
 
-- **Dependency**
-- **PackageJson**
-- **PackageJsonHelper**
+- **Dependency** - Represents a single package dependency with a key (package name) and value (version).
+- **PackageJson** - Data model for the package.json structure (dependencies, devDependencies, scripts, version, etc.).
+- **PackageJsonHelper** - Utility methods for parsing package.json files and categorizing packages by version.
 
 ### Key Methods
 
-- `GetVersionFromDepsOrDevDeps()`
-- `Parse()`
+- `PackageJson.GetVersionFromDepsOrDevDeps(packageName)` - Looks up a package version in dependencies or devDependencies.
+- `PackageJsonHelper.Parse(json)` - Parses a JSON string into a PackageJson object.
+- `PackageJsonHelper.CategorizeByFirstNumberOfPackage(folder, packageName)` - Categorizes package.json files by major version of a given package.
 
 ## Installation
 
@@ -27,16 +28,16 @@ dotnet add package SunamoPackageJson
 
 ## Dependencies
 
-- **Newtonsoft.Json** (v13.0.3)
-- **Microsoft.Extensions.Logging.Abstractions** (v9.0.3)
+- **Newtonsoft.Json** (v13.0.4)
+- **Microsoft.Extensions.Logging.Abstractions** (v10.0.2)
 
 ## Package Information
 
 - **Package Name**: SunamoPackageJson
-- **Version**: 25.3.29.1
-- **Target Framework**: net9.0
+- **Version**: 26.2.7.2
+- **Target Frameworks**: net10.0;net9.0;net8.0
 - **Category**: Platform-Independent NuGet Package
-- **Source Files**: 11
+- **License**: MIT
 
 ## Related Packages
 
