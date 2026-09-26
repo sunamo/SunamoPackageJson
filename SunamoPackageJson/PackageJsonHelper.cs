@@ -13,11 +13,7 @@ public class PackageJsonHelper
     /// <param name="packageName">The name of the package whose version is used for categorization.</param>
     /// <returns>A dictionary mapping major version numbers to lists of package.json file paths.</returns>
     public static
-#if ASYNC
         async Task<Dictionary<int, List<string>>>
-#else
-        Dictionary<int, List<string>>
-#endif
         CategorizeByFirstNumberOfPackage(string folder, string packageName)
     {
         Dictionary<int, List<string>> result = new();
@@ -25,10 +21,8 @@ public class PackageJsonHelper
         foreach (var item in packageJsonFiles)
         {
             var packageJson = Parse(
-#if ASYNC
                 await
-#endif
-                    File.ReadAllTextAsync(item));
+                    FileAsync.ReadAllTextAsync(item));
             var version = packageJson.GetVersionFromDepsOrDevDeps(packageName).TrimStart('^');
             if (version != "")
             {
@@ -68,19 +62,13 @@ public class PackageJsonHelper
     /// <param name="jsonOrPath">Either a JSON string or a file path to a package.json file.</param>
     /// <returns>A list of npm package URLs for all dependencies and devDependencies.</returns>
     public static
-#if ASYNC
         async Task<List<string>>
-#else
-    List<string>
-#endif
         PackageNamesFromPackageJson(string jsonOrPath)
     {
         if (File.Exists(jsonOrPath))
             jsonOrPath =
-#if ASYNC
                 await
-#endif
-                    File.ReadAllTextAsync(jsonOrPath);
+                    FileAsync.ReadAllTextAsync(jsonOrPath);
         var npmUrlPrefix = @"https://www.npmjs.com/package/";
         var packageJson = Parse(jsonOrPath);
         var result = new List<string>();
@@ -99,20 +87,14 @@ public class PackageJsonHelper
     /// <param name="cdnProviderUrl">The base URL of the CDN provider (e.g. unpkg).</param>
     /// <param name="urlReplacementFunction">A function that constructs the final URL from the CDN provider URL and the package name.</param>
     public static
-#if ASYNC
         async Task
-#else
-    void
-#endif
         OpenPackagesFromPackageJsonFromNpm(string jsonOrPath, Action<string> openInBrowser,
             string cdnProviderUrl, Func<string, string, string> urlReplacementFunction)
     {
         if (File.Exists(jsonOrPath))
             jsonOrPath =
-#if ASYNC
                 await
-#endif
-                    File.ReadAllTextAsync(jsonOrPath);
+                    FileAsync.ReadAllTextAsync(jsonOrPath);
         var packageJson = Parse(jsonOrPath);
         if (packageJson.dependencies != null)
             foreach (var item in packageJson.dependencies)
