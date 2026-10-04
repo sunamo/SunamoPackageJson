@@ -1,5 +1,10 @@
 # SunamoPackageJson
 
+## Short description
+
+Knihovna pro čtení a generování souborů package.json. Obsahuje Runner a testy.
+
+
 A .NET library for reading and generating package.json files.
 
 ## Overview
